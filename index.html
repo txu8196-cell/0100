@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 暑期夢幻度假企劃 | 夏日旅遊促銷與滿意度調查</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans TC & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        sun: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        coral: '#ff6b6b'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(12, 74, 110, 0.4), rgba(12, 74, 110, 0.6)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .form-input-focus:focus {
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-ocean-500 selection:text-white">
+
+    <!-- 導覽列 Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-ocean-500 to-sun-400 flex items-center justify-center text-white text-xl shadow-md">
+                    <i class="fa-solid font-bold fa-plane-departure"></i>
+                </div>
+                <span class="text-2xl font-extrabold bg-gradient-to-r from-ocean-800 via-ocean-600 to-sun-500 bg-clip-text text-transparent tracking-wide">
+                    奔夏旅行社
+                </span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
+                <a href="#destinations" class="hover:text-ocean-600 transition-colors">熱門行程促銷</a>
+                <a href="#highlights" class="hover:text-ocean-600 transition-colors">暑期限定特色</a>
+                <a href="#survey" class="hover:text-ocean-600 transition-colors">行程調查表</a>
+            </div>
+
+            <a href="#survey" class="bg-gradient-to-r from-ocean-500 to-ocean-600 hover:from-ocean-600 hover:to-ocean-800 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                立即填寫調查
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero 主視覺 -->
+    <header class="hero-bg min-h-[85vh] flex items-center justify-center text-center px-4 relative pt-20">
+        <div class="max-w-4xl mx-auto text-white space-y-6 z-10 py-12">
+            <span class="inline-block bg-sun-400/90 text-slate-900 font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider shadow-lg animate-pulse">
+                ☀️ 2027 Summer Vacation Limited Offer
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight drop-shadow-md">
+                點燃你的夏日渴望<br>
+                <span class="text-sun-400">開啟夢幻海洋之旅</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-100 max-w-2xl mx-auto font-light leading-relaxed drop-shadow">
+                嚴選全球絕美度假勝地，早鳥報名享最高現折 $10,000 優惠！填寫旅遊意向問卷，再抽沖繩雙人來回機票！
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#destinations" class="w-full sm:w-auto bg-sun-400 hover:bg-sun-500 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                    <span>探索暑期促銷行程</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#survey" class="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/40 font-bold px-8 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <span>參加旅遊調查表</span>
+                </a>
+            </div>
+        </div>
+        <!-- 裝飾用波浪 -->
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-50 to-transparent"></div>
+    </header>
+
+    <!-- 旅遊資訊 促銷地點列表 Section -->
+    <section id="destinations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <h2 class="text-ocean-600 font-bold text-sm tracking-widest uppercase">Hot Summer Deals</h2>
+            <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-800">2027 暑期熱門主題旅遊促銷</h3>
+            <p class="text-slate-500">精心策劃四大夏日主題度假行程，為您與家人打造無與倫比的回憶。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- 行程 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex flex-col">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=800&q=80" 
+                         alt="馬爾地夫" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x500/0ea5e9/ffffff?text=Maldives'">
+                    <span class="absolute top-3 left-3 bg-coral text-white font-bold text-xs px-3 py-1 rounded-full shadow">早鳥折 $8,000</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-sun-500 text-xs font-semibold mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 ml-1">(4.9/5)</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">馬爾地夫水上別墅 6 日</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">獨享無邊際海景水上屋，含私人管家服務、水底餐廳體驗與雙人SPA放鬆。</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between pt-4 border-t border-slate-100 mb-4">
+                            <span class="text-xs text-slate-400">特惠價/人</span>
+                            <div>
+                                <span class="text-xs text-slate-400 line-through mr-1">NT$ 89,000</span>
+                                <span class="text-xl font-extrabold text-ocean-600">NT$ 81,000</span>
+                            </div>
+                        </div>
+                        <a href="#survey" onclick="selectDestination('馬爾地夫水上別墅 6 日')" class="block w-full text-center bg-ocean-50 hover:bg-ocean-500 hover:text-white text-ocean-600 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+                            選擇此行程預約
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行程 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex flex-col">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" 
+                         alt="峇里島" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x500/0ea5e9/ffffff?text=Bali'">
+                    <span class="absolute top-3 left-3 bg-sun-500 text-white font-bold text-xs px-3 py-1 rounded-full shadow">暑期熱賣</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-sun-500 text-xs font-semibold mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 ml-1">(4.8/5)</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">峇里島 Villa 渡假 5 日</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">獨棟泳池 Villa 住宿，體驗烏布文化手作、日落海灘 BBQ 與刺激水上活動。</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between pt-4 border-t border-slate-100 mb-4">
+                            <span class="text-xs text-slate-400">特惠價/人</span>
+                            <div>
+                                <span class="text-xs text-slate-400 line-through mr-1">NT$ 32,000</span>
+                                <span class="text-xl font-extrabold text-ocean-600">NT$ 26,800</span>
+                            </div>
+                        </div>
+                        <a href="#survey" onclick="selectDestination('峇里島 Villa 渡假 5 日')" class="block w-full text-center bg-ocean-50 hover:bg-ocean-500 hover:text-white text-ocean-600 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+                            選擇此行程預約
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行程 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex flex-col">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80" 
+                         alt="沖繩" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x500/0ea5e9/ffffff?text=Okinawa'">
+                    <span class="absolute top-3 left-3 bg-emerald-500 text-white font-bold text-xs px-3 py-1 rounded-full shadow">親子首選</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-sun-500 text-xs font-semibold mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-slate-400 ml-1">(4.7/5)</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">沖繩海景自駕 4 日</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">含自駕租車與全險，探訪美麗海水族館、古宇利大橋與限定渡假飯店。</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between pt-4 border-t border-slate-100 mb-4">
+                            <span class="text-xs text-slate-400">特惠價/人</span>
+                            <div>
+                                <span class="text-xs text-slate-400 line-through mr-1">NT$ 24,500</span>
+                                <span class="text-xl font-extrabold text-ocean-600">NT$ 19,900</span>
+                            </div>
+                        </div>
+                        <a href="#survey" onclick="selectDestination('沖繩海景自駕 4 日')" class="block w-full text-center bg-ocean-50 hover:bg-ocean-500 hover:text-white text-ocean-600 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+                            選擇此行程預約
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行程 4 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 flex flex-col">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" 
+                         alt="悉尼/黃金海岸" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                         onerror="this.src='https://placehold.co/800x500/0ea5e9/ffffff?text=Australia'">
+                    <span class="absolute top-3 left-3 bg-purple-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow">避暑勝地</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-sun-500 text-xs font-semibold mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 ml-1">(4.9/5)</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">澳洲黃金海岸 7 日</h4>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2">北半球避暑最佳選擇！體驗衝浪天堂、抱考拉與華納兄弟電影世界。</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline justify-between pt-4 border-t border-slate-100 mb-4">
+                            <span class="text-xs text-slate-400">特惠價/人</span>
+                            <div>
+                                <span class="text-xs text-slate-400 line-through mr-1">NT$ 58,000</span>
+                                <span class="text-xl font-extrabold text-ocean-600">NT$ 49,800</span>
+                            </div>
+                        </div>
+                        <a href="#survey" onclick="selectDestination('澳洲黃金海岸 7 日')" class="block w-full text-center bg-ocean-50 hover:bg-ocean-500 hover:text-white text-ocean-600 font-semibold py-2.5 rounded-xl transition-colors text-sm">
+                            選擇此行程預約
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 促銷特色 Highlights -->
+    <section id="highlights" class="bg-gradient-to-b from-ocean-50 to-slate-50 py-16 border-y border-ocean-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-ocean-100 text-ocean-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">全程安心保障</h4>
+                    <p class="text-slate-500 text-sm">投保履約保險與 500 萬旅遊平安險，讓您的夏日度假無後顧之憂。</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-sun-100 text-sun-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">早鳥獨家好禮</h4>
+                    <p class="text-slate-500 text-sm">指定前 50 名報名者，贈送機場接送服務或防水相機包乙份。</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-coral/10 text-coral rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">24H 專屬管家</h4>
+                    <p class="text-slate-500 text-sm">專業旅遊顧問一對一服務，隨時解答行程疑問與協助彈性規劃。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅遊意見調查表 Survey Section -->
+    <section id="survey" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+            <!-- 表單標頭 -->
+            <div class="bg-gradient-to-r from-ocean-600 to-ocean-800 px-6 sm:px-10 py-10 text-white relative">
+                <div class="relative z-10">
+                    <span class="bg-white/20 text-white font-medium text-xs px-3 py-1 rounded-full uppercase tracking-wider">Survey Form</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold mt-2">暑期旅遊意向與意見調查表</h3>
+                    <p class="text-ocean-100 text-sm sm:text-base mt-2 font-light">
+                        感謝您對奔夏旅行社的支持！請填寫以下問卷，讓我們為您提供更優質的暑期度假服務。
+                    </p>
+                </div>
+                <i class="fa-solid fa-umbrella-beach absolute right-6 bottom-4 text-7xl text-white/10 pointer-events-none"></i>
+            </div>
+
+            <!-- 調查表單 -->
+            <form id="travelSurveyForm" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-10 space-y-10" novalidate>
+                
+                <!-- 第一類：個人資料 -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6 pb-2 border-b border-slate-100">
+                        <span class="w-8 h-8 rounded-full bg-ocean-500 text-white flex items-center justify-center font-bold text-sm">1</span>
+                        <h4 class="text-xl font-bold text-slate-800">個人資料</h4>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- 姓名 -->
+                        <div>
+                            <label for="userName" class="block text-sm font-semibold text-slate-700 mb-1">
+                                姓名 <span class="text-coral">*</span>
+                            </label>
+                            <input type="text" id="userName" name="userName" required
+                                   placeholder="例如：王小明" 
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800">
+                            <p class="text-coral text-xs mt-1 hidden" id="userNameError">請輸入您的姓名</p>
+                        </div>
+
+                        <!-- 電話 -->
+                        <div>
+                            <label for="userPhone" class="block text-sm font-semibold text-slate-700 mb-1">
+                                聯絡電話 <span class="text-coral">*</span>
+                            </label>
+                            <input type="tel" id="userPhone" name="userPhone" required
+                                   placeholder="例如：0912345678" 
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800">
+                            <p class="text-coral text-xs mt-1 hidden" id="userPhoneError">請輸入有效的台灣手機號碼 (09xxxxxxxx)</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="sm:col-span-2">
+                            <label for="userEmail" class="block text-sm font-semibold text-slate-700 mb-1">
+                                電子郵件 (Email) <span class="text-coral">*</span>
+                            </label>
+                            <input type="email" id="userEmail" name="userEmail" required
+                                   placeholder="例如：example@gmail.com" 
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800">
+                            <p class="text-coral text-xs mt-1 hidden" id="userEmailError">請輸入有效的電子郵件格式</p>
+                        </div>
+
+                        <!-- 地址 -->
+                        <div class="sm:col-span-2">
+                            <label for="userAddress" class="block text-sm font-semibold text-slate-700 mb-1">
+                                通訊地址 <span class="text-coral">*</span>
+                            </label>
+                            <input type="text" id="userAddress" name="userAddress" required
+                                   placeholder="請輸入郵遞區號與完整通訊地址" 
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800">
+                            <p class="text-coral text-xs mt-1 hidden" id="userAddressError">請輸入您的通訊地址</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二類：行程相關資料 -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6 pb-2 border-b border-slate-100">
+                        <span class="w-8 h-8 rounded-full bg-sun-500 text-white flex items-center justify-center font-bold text-sm">2</span>
+                        <h4 class="text-xl font-bold text-slate-800">行程偏好調查</h4>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- 1. 參加哪個行程？ -->
+                        <div>
+                            <label for="selectedTrip" class="block text-sm font-semibold text-slate-700 mb-1">
+                                1. 欲參加或感興趣的暑期行程？ <span class="text-coral">*</span>
+                            </label>
+                            <select id="selectedTrip" name="selectedTrip" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800 bg-white">
+                                <option value="" disabled selected>-- 請選擇促銷行程 --</option>
+                                <option value="馬爾地夫水上別墅 6 日">馬爾地夫水上別墅 6 日 (早鳥折$8,000)</option>
+                                <option value="峇里島 Villa 渡假 5 日">峇里島 Villa 渡假 5 日 (暑期熱賣)</option>
+                                <option value="沖繩海景自駕 4 日">沖繩海景自駕 4 日 (親子首選)</option>
+                                <option value="澳洲黃金海岸 7 日">澳洲黃金海岸 7 日 (夏日避暑勝地)</option>
+                                <option value="其他客製化行程">其他 (專人客製化規劃)</option>
+                            </select>
+                            <p class="text-coral text-xs mt-1 hidden" id="selectedTripError">請選擇一個行程</p>
+                        </div>
+
+                        <!-- 2. 參加日期 -->
+                        <div>
+                            <label for="travelDate" class="block text-sm font-semibold text-slate-700 mb-1">
+                                2. 預計出發日期？ <span class="text-coral">*</span>
+                            </label>
+                            <input type="date" id="travelDate" name="travelDate" required
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800">
+                            <p class="text-coral text-xs mt-1 hidden" id="travelDateError">請選擇預計出發日期</p>
+                        </div>
+
+                        <!-- 3. 參加行程的原因 -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">
+                                3. 選擇此行程的主要原因？ (可多選) <span class="text-coral">*</span>
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="reasonsGroup">
+                                <label class="flex items-center space-x-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-ocean-50/50 transition-colors">
+                                    <input type="checkbox" name="tripReason" value="暑期促銷折扣吸引人" class="w-4 h-4 text-ocean-600 rounded focus:ring-ocean-500">
+                                    <span class="text-sm text-slate-700">暑期促銷折扣吸引人</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-ocean-50/50 transition-colors">
+                                    <input type="checkbox" name="tripReason" value="度假地點風景優美" class="w-4 h-4 text-ocean-600 rounded focus:ring-ocean-500">
+                                    <span class="text-sm text-slate-700">度假地點風景優美</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-ocean-50/50 transition-colors">
+                                    <input type="checkbox" name="tripReason" value="親友推薦或同行" class="w-4 h-4 text-ocean-600 rounded focus:ring-ocean-500">
+                                    <span class="text-sm text-slate-700">親友推薦或同行</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-ocean-50/50 transition-colors">
+                                    <input type="checkbox" name="tripReason" value="行程安排彈性豐富" class="w-4 h-4 text-ocean-600 rounded focus:ring-ocean-500">
+                                    <span class="text-sm text-slate-700">行程安排彈性豐富</span>
+                                </label>
+                            </div>
+                            <p class="text-coral text-xs mt-1 hidden" id="tripReasonError">請至少勾選一項原因</p>
+                        </div>
+
+                        <!-- 4. 其他建議 -->
+                        <div>
+                            <label for="suggestions" class="block text-sm font-semibold text-slate-700 mb-1">
+                                4. 其他寶貴建議或需求？
+                            </label>
+                            <textarea id="suggestions" name="suggestions" rows="4" 
+                                      placeholder="歡迎留下您對住宿、餐食或特別慶生/蜜月的需求與建議..."
+                                      class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none form-input-focus transition-all text-slate-800"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 送出按鈕 -->
+                <div class="pt-4">
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-ocean-500 via-ocean-600 to-ocean-800 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-lg flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>送出旅遊意見調查</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2 text-white font-bold text-xl">
+                <i class="fa-solid fa-plane-departure text-ocean-400"></i>
+                <span>奔夏旅行社 Summer Tour Agency</span>
+            </div>
+            <p class="text-sm text-slate-500">交觀甲字第 0000 號 | 品保協會會員 | 24 小時服務專線：0800-000-888</p>
+            <p class="text-xs text-slate-600">© 2027 奔夏旅行社 版權所有. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 送出成功 Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center space-y-6 transform transition-all scale-95">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center text-4xl mx-auto animate-bounce">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <h3 class="text-2xl font-extrabold text-slate-800">問卷送出成功！</h3>
+                <p class="text-slate-500 text-sm mt-2">
+                    感謝您的寶貴意見！我們的旅遊專員將於 24 小時內聯絡您，為您提供專屬暑期優惠細節。
+                </p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl text-left text-xs space-y-2 text-slate-600">
+                <p><strong>聯絡姓名：</strong><span id="modalName"></span></p>
+                <p><strong>預約行程：</strong><span id="modalTrip"></span></p>
+                <p><strong>預計日期：</strong><span id="modalDate"></span></p>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-ocean-600 hover:bg-ocean-700 text-white font-bold py-3 rounded-xl transition-colors">
+                我知道了
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript 驗證與互動 logic -->
+    <script>
+        // 設定最小日期為今日
+        document.addEventListener("DOMContentLoaded", () => {
+            const dateInput = document.getElementById('travelDate');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+        });
+
+        // 從行程卡片點擊時自動帶入下拉選單
+        function selectDestination(tripName) {
+            const selectElement = document.getElementById('selectedTrip');
+            selectElement.value = tripName;
+            // 清除可能存在的錯誤標示
+            document.getElementById('selectedTripError').classList.add('hidden');
+        }
+
+        // 驗證表單與處理送出
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            // 1. 姓名驗證
+            const userName = document.getElementById('userName').value.trim();
+            const userNameError = document.getElementById('userNameError');
+            if (!userName) {
+                userNameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                userNameError.classList.add('hidden');
+            }
+
+            // 2. 電話驗證 (台灣手機格式驗證: 09開頭 10位數字)
+            const userPhone = document.getElementById('userPhone').value.trim();
+            const userPhoneError = document.getElementById('userPhoneError');
+            const phoneRegex = /^09\d{8}$/;
+            if (!phoneRegex.test(userPhone)) {
+                userPhoneError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                userPhoneError.classList.add('hidden');
+            }
+
+            // 3. Email 驗證
+            const userEmail = document.getElementById('userEmail').value.trim();
+            const userEmailError = document.getElementById('userEmailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(userEmail)) {
+                userEmailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                userEmailError.classList.add('hidden');
+            }
+
+            // 4. 地址驗證
+            const userAddress = document.getElementById('userAddress').value.trim();
+            const userAddressError = document.getElementById('userAddressError');
+            if (!userAddress) {
+                userAddressError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                userAddressError.classList.add('hidden');
+            }
+
+            // 5. 行程選擇驗證
+            const selectedTrip = document.getElementById('selectedTrip').value;
+            const selectedTripError = document.getElementById('selectedTripError');
+            if (!selectedTrip) {
+                selectedTripError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                selectedTripError.classList.add('hidden');
+            }
+
+            // 6. 參加日期驗證
+            const travelDate = document.getElementById('travelDate').value;
+            const travelDateError = document.getElementById('travelDateError');
+            if (!travelDate) {
+                travelDateError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                travelDateError.classList.add('hidden');
+            }
+
+            // 7. 原因多選驗證 (至少勾選一項)
+            const reasonCheckboxes = document.querySelectorAll('input[name="tripReason"]:checked');
+            const tripReasonError = document.getElementById('tripReasonError');
+            if (reasonCheckboxes.length === 0) {
+                tripReasonError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                tripReasonError.classList.add('hidden');
+            }
+
+            // 通過驗證後彈出 Modal
+            if (isValid) {
+                document.getElementById('modalName').textContent = userName;
+                document.getElementById('modalTrip').textContent = selectedTrip;
+                document.getElementById('modalDate').textContent = travelDate;
+                
+                document.getElementById('successModal').classList.remove('hidden');
+            }
+        }
+
+        // 關閉 Modal 並重置表單
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('travelSurveyForm').reset();
+        }
+    </script>
+</body>
+</html>
